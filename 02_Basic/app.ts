@@ -1,5 +1,7 @@
 // Tuple, object, Array, Enum
 
+
+//Object Example
 // const person : {
 //     firstName: string;
 //     age: number;
@@ -14,40 +16,40 @@
 
 
 //tuple example
-// const tupleExample: {
-//     name: string;
-//     age: number;
-//     skills: string[]
-//     product: [number, string]
-// } = {
-//     name: "Rajat",
-//     age: 22,
-//     skills: ["TypeScript", "NextJs"],
-//     product: [10, "Led"] //here tuple have same fixed size and also same Way to write
-// }
-// console.log(tupleExample.product[1]);
+const tupleExample: {
+    name: string;
+    age: number;
+    skills: string[]
+    product: [number, string]
+} = {
+    name: "Rajat",
+    age: 22,
+    skills: ["TypeScript", "NextJs"],
+    product: [10, "Led"] //here tuple have same fixed size and also same Way to write
+}
+console.log(tupleExample.product[1]);
 
 
 //enum 
 
-enum Role {ADMIN, USER, AUTHOR};
-const person1 = {
-    name: "Vaibhav",
-    age:22,
-    skills: ["Html", "Css"],
-    product: [10, "Tv"],
-    role: Role.ADMIN
-}
+// enum Role {ADMIN, USER, AUTHOR};
+// const person1 = {
+//     name: "Vaibhav",
+//     age:22,
+//     skills: ["Html", "Css"],
+//     product: [10, "Tv"],
+//     role: Role.ADMIN
+// }
 
-if(person1.role === Role.ADMIN){
-    console.log("admin");   
-}
-else if(person1.role === Role.USER){
-    console.log("user");
+// if(person1.role === Role.ADMIN){
+//     console.log("admin");   
+// }
+// else if(person1.role === Role.USER){
+//     console.log("user");
     
-}
-else if(person1.role === Role.AUTHOR){
-    console.log("author");
+// }
+// else if(person1.role === Role.AUTHOR){
+//     console.log("author");
     
-}
+// }
 
