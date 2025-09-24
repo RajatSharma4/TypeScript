@@ -76,6 +76,7 @@ var __extends = (this && this.__extends) || (function () {
 // accounting.addEmployees("Anjali")
 // accounting.printEmployees()
 //Inheritance
+//Override and protected access modifier
 var Department = /** @class */ (function () {
     function Department(id, n) {
         this.name = n;
@@ -113,9 +114,98 @@ var accountingDepartment = /** @class */ (function (_super) {
     accountingDepartment.prototype.printReports = function () {
         console.log(this.reports);
     };
+    accountingDepartment.prototype.addEmployees = function (emp) {
+        if (emp === "Patel") {
+            return;
+        }
+        this.employees.push(emp);
+    };
+    Object.defineProperty(accountingDepartment.prototype, "getReports", {
+        get: function () {
+            if (this.reports.length > 0) {
+                return this.reports;
+            }
+            else {
+                throw new Error("Report not found");
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(accountingDepartment.prototype, "setReports", {
+        set: function (value) {
+            if (!value) {
+                throw new Error("Please enter valid value");
+            }
+            else {
+                this.reports.push(value);
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
     return accountingDepartment;
 }(Department));
 var accDep = new accountingDepartment("d1", []);
 // accDep.describe()
 accDep.addReports("Bugs");
-accDep.printReports();
+// accDep.printReports()
+accDep.addEmployees("Patel");
+accDep.addEmployees("Rajat");
+// accDep.printEmployees()
+//printing getter and setter
+// console.log(accDep.getReports);
+// accDep.setReports = "Some error occurs"
+// console.log(accDep.getReports);
+//static method
+var Department2 = /** @class */ (function () {
+    function Department2(id, n) {
+        this.name = n;
+        this.id = id; // it can initialize once only
+        this.employees = [];
+    }
+    Department2.prototype.describe = function () {
+        // this.id = "D2" // this can't initialize again due to readonly modifier 
+        console.log("Department = " + this.name);
+    };
+    Department2.prototype.addEmployees = function (emp) {
+        this.employees.push(emp);
+    };
+    Department2.prototype.printEmployees = function () {
+        console.log("Number of Employee = ", this.employees.length);
+        console.log(this.employees);
+    };
+    Department2.getSalary = function () {
+        return { "salary": 500000 };
+    };
+    return Department2;
+}());
+var salary = Department2.getSalary(); //with the help of static keyword we don't need too create object of the class only through the class name we can easily access thm
+// console.log(salary);
+//abstract classes
+var Department3 = /** @class */ (function () {
+    function Department3(id, n) {
+        this.employees = [];
+        this.name = n;
+        this.id = id; // it can initialize once only
+    }
+    return Department3;
+}());
+var Subclass = /** @class */ (function (_super) {
+    __extends(Subclass, _super);
+    function Subclass(id, reports) {
+        var _this = _super.call(this, id, "Accounting") || this;
+        _this.reports = reports;
+        return _this;
+    }
+    Subclass.prototype.describe = function () {
+        console.log("Department : ", this.id);
+    };
+    Subclass.prototype.printName = function () {
+        console.log(this.name);
+    };
+    return Subclass;
+}(Department3));
+var newClass = new Subclass("D1", []);
+newClass.describe();
+newClass.printName();
