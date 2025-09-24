@@ -16,7 +16,7 @@
 
 
 
-//LITERAL TYPE -> Literals is use for making our own type
+//LITERAL TYPE -> Literals is use for making our own type in typescript
 
 // function combine(num1: number | string, num2: number | string, conversionType: "as-number" | "as-string"){
 //     let result;
