@@ -1,4 +1,4 @@
-//unknown , any
+//unknown , any in typescript
 
 // let userInput: any;
 // let userInput: unknown;
