@@ -1,5 +1,5 @@
  
- //core types in typescript
+ //core types in the typescript
  function add(a:number, b:number, printBool:boolean) {
    if(printBool){
     return a+b
