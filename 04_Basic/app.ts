@@ -1,4 +1,4 @@
-// function return type
+// function return type in typescript
 
 // function sum(num1: number, num2: number):number{
 //     return num1+num2
