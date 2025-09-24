@@ -15,7 +15,7 @@
 
 
 
-//tuple example
+//tuple example in typescript
 const tupleExample: {
     name: string;
     age: number;
